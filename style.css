@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -39,18 +38,14 @@ body {
 
 .chart-selector {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 8px;
   margin-bottom: 18px;
 }
 
-@media (max-width: 700px) {
-  .chart-selector {
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  }
-}
-
 .chart-btn {
+  width: 100%;
+  box-sizing: border-box;
   padding: 7px 6px;
   border: none;
   border-radius: 7px;
@@ -259,4 +254,33 @@ textarea {
   box-shadow: none;
   background: none;
   padding: 0 10px 10px 10px;
+}
+
+@media (max-width: 900px) {
+  .main-layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    min-height: unset;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    margin-bottom: 16px;
+  }
+  #mainContent {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+  }
+  #graph {
+    min-height: 350px;
+    height: 60vh;
+    max-height: 70vh;
+  }
+  .container {
+    padding: 0;
+  }
 }
