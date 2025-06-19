@@ -219,8 +219,7 @@ textarea {
   flex-shrink: 0;
   background-color: white;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  overflow-y: auto;
-  height: 100vh;
+  /* overflow-y: auto; */
   border-radius: 10px;
   /* Hide scrollbar for all browsers */
   scrollbar-width: none; /* Firefox */
