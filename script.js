@@ -1,4 +1,3 @@
-
 let currentChartType = 'surface';
 let currentData = null;
 
@@ -199,6 +198,7 @@ const sampleData = {
 document.addEventListener('DOMContentLoaded', function() {
   setupEventListeners();
   updateInputSection();
+  generateVisualization(); // Show default plot on load
 });
 
 function setupEventListeners() {
