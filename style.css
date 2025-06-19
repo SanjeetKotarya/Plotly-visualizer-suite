@@ -93,11 +93,12 @@ body {
 
 input, textarea, select {
   width: 100%;
-  padding: 12px;
+  padding: 6px 8px;
   border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 6px;
+  font-size: 12px;
   transition: border-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 input:focus, textarea:focus, select:focus {
@@ -255,7 +256,7 @@ textarea {
   padding: 0 10px 10px 10px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .main-layout {
     flex-direction: column;
   }
