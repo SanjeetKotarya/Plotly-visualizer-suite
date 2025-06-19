@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced Plotly Visualization Suite</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main-layout">
+  <div class="sidebar" id="sidebarPanel">
+    <div class="header">
+      <h1>🚀 Advanced Plotly Visualization Suite</h1>
+    </div>
+    <div class="control-panel">
+      <div class="chart-selector">
+        <button class="chart-btn" data-type="mathgraph">Math Graph</button>
+        <button class="chart-btn active" data-type="surface">3D Surface</button>
+        <button class="chart-btn" data-type="scatter3d">3D Scatter</button>
+        <button class="chart-btn" data-type="line3d">3D Line</button>
+        <button class="chart-btn" data-type="mesh3d">3D Mesh</button>
+        <button class="chart-btn" data-type="scatter">2D Scatter</button>
+        <button class="chart-btn" data-type="line">Line Chart</button>
+        <button class="chart-btn" data-type="bar">Bar Chart</button>
+        <button class="chart-btn" data-type="histogram">Histogram</button>
+        <button class="chart-btn" data-type="box">Box Plot</button>
+        <button class="chart-btn" data-type="violin">Violin Plot</button>
+        <button class="chart-btn" data-type="heatmap">Heatmap</button>
+        <button class="chart-btn" data-type="contour">Contour</button>
+        <button class="chart-btn" data-type="pie">Pie Chart</button>
+        <button class="chart-btn" data-type="sunburst">Sunburst</button>
+        <button class="chart-btn" data-type="treemap">Treemap</button>
+        <button class="chart-btn" data-type="sankey">Sankey</button>
+        <button class="chart-btn" data-type="polar">Polar Chart</button>
+        <button class="chart-btn" data-type="radar">Radar Chart</button>
+        <button class="chart-btn" data-type="waterfall">Waterfall</button>
+        <button class="chart-btn" data-type="funnel">Funnel</button>
+      </div>
+
+      <div class="error-message" id="errorMsg"></div>
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        Generating visualization...
+      </div>
+
+      <div id="inputSection">
+        <!-- Dynamic input section based on chart type -->
+      </div>
+
+      <button class="advanced-toggle" onclick="toggleAdvanced()">⚙️ Advanced Options</button>
+      
+      <div class="advanced-options" id="advancedOptions">
+        <div class="input-group">
+          <div class="input-wrapper">
+            <label>Animation Frame Duration (ms)</label>
+            <input type="number" id="animationSpeed" value="500" min="100" max="2000">
+          </div>
+          <div class="input-wrapper">
+            <label>Color Scale</label>
+            <select id="colorScale">
+              <option value="Viridis">Viridis</option>
+              <option value="Plasma">Plasma</option>
+              <option value="Inferno">Inferno</option>
+              <option value="Magma">Magma</option>
+              <option value="Rainbow">Rainbow</option>
+              <option value="Portland">Portland</option>
+              <option value="Jet">Jet</option>
+              <option value="Hot">Hot</option>
+              <option value="Greys">Greys</option>
+              <option value="Blues">Blues</option>
+              <option value="Reds">Reds</option>
+            </select>
+          </div>
+          <div class="input-wrapper">
+            <label>Background Color</label>
+            <input type="color" id="bgColor" value="#ffffff" class="color-picker">
+          </div>
+          <div class="input-wrapper">
+            <label>Grid Color</label>
+            <input type="color" id="gridColor" value="#e6e6e6" class="color-picker">
+          </div>
+        </div>
+      </div>
+
+      <button class="generate-btn" onclick="generateVisualization()">🎨 Generate Visualization</button>
+    </div>
+  </div>
+
+  <div class="container" id="mainContent">
+    <div id="graph" style="width:100%;height:700px;"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
