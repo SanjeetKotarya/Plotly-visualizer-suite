@@ -3,28 +3,6 @@ let currentData = null;
 
 // Chart type configurations
 const chartConfigs = {
-  mathgraph: {
-    inputs: `
-      <div class="input-group">
-        <div class="input-wrapper">
-          <label>Equation f(x, y)</label>
-          <input type="text" id="mathEquation" placeholder="sin(x^2 + y^2) - cos(x - y)">
-        </div>
-        <div class="input-wrapper">
-          <label>X Range</label>
-          <input type="text" id="mathXRange" placeholder="-10,10" value="-10,10">
-        </div>
-        <div class="input-wrapper">
-          <label>Y Range</label>
-          <input type="text" id="mathYRange" placeholder="-10,10" value="-10,10">
-        </div>
-        <div class="input-wrapper">
-          <label>Resolution</label>
-          <input type="number" id="mathResolution" value="50" min="10" max="200">
-        </div>
-      </div>
-    `
-  },
   surface: {
     inputs: `
       <div class="input-group">
@@ -322,8 +300,6 @@ function generateVisualization() {
 
 function generateChartData() {
   switch (currentChartType) {
-    case 'mathgraph':
-      return generateMathGraphData();
     case 'surface':
       return generateSurfaceData();
     case 'scatter3d':
@@ -367,56 +343,6 @@ function generateChartData() {
     default:
       throw new Error('Chart type not implemented');
   }
-}
-
-function generateMathGraphData() {
-  const equation = document.getElementById('mathEquation').value;
-  const xRange = parseRange(document.getElementById('mathXRange').value);
-  const yRange = parseRange(document.getElementById('mathYRange').value);
-  const resolution = parseInt(document.getElementById('mathResolution').value);
-  const expr = parseEquation(equation);
-  const step = (xRange[1] - xRange[0]) / resolution;
-  const xData = [], yData = [], zData = [];
-  for (let i = 0; i <= resolution; i++) {
-    xData.push(xRange[0] + i * step);
-    yData.push(yRange[0] + i * (yRange[1] - yRange[0]) / resolution);
-  }
-  for (let i = 0; i <= resolution; i++) {
-    const row = [];
-    for (let j = 0; j <= resolution; j++) {
-      const x = xData[j];
-      const y = yData[i];
-      try {
-        const z = Function("x", "y", "return " + expr)(x, y);
-        row.push(isFinite(z) ? z : 0);
-      } catch (e) {
-        row.push(0);
-      }
-    }
-    zData.push(row);
-  }
-  return [{
-    type: 'surface',
-    x: xData,
-    y: yData,
-    z: zData,
-    colorscale: document.getElementById('colorScale').value,
-    lighting: {
-      ambient: 0.4,
-      diffuse: 0.6,
-      fresnel: 0.2,
-      specular: 0.05,
-      roughness: 0.05
-    },
-    contours: {
-      z: {
-        show: true,
-        usecolormap: true,
-        highlightcolor: "#42f462",
-        project: {z: true}
-      }
-    }
-  }];
 }
 
 function generateSurfaceData() {
