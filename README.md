@@ -25,6 +25,5 @@ Plotly Chart Studio is a powerful web-based data visualization tool that lets yo
  🌐 Live Demo
 
 🔗 Try it now on GitHub Pages  
-[https://yourusername.github.io/plotly-visualizer-suite](https://yourusername.github.io/plotly-visualizer-suite)
-
+https://sanjeetkotarya.github.io/Plotly-visualizer-suite/
 
